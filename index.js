@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainApp = document.getElementById("main-app");
   const hasVisited = localStorage.getItem("hasVisited");
 
-   if (hasVisited) {
-   introPage.classList.add("hidden");
-   mainApp.classList.remove("hidden");
-  }
+  //  if (hasVisited) {
+  //  introPage.classList.add("hidden");
+  //  mainApp.classList.remove("hidden");
+  // }
 
   const getStartedBtn = document.getElementById("get-started-btn");
   getStartedBtn.addEventListener("click", (e) => {
