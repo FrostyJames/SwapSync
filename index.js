@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //  mainApp.classList.remove("hidden");
   // }
 
-  const getStartedBtn = document.getElementById("get-started-btn");
+  const getStartedBtn = document.getElementById("get-started-btn");// --- IGNORE ---
   getStartedBtn.addEventListener("click", (e) => {
     e.preventDefault();
     introPage.classList.add("opacity-0", "transition-opacity", "duration-500");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const toggleButton = document.getElementById('user-menu-button');
 const menu = document.getElementById('user-menu');
 
-toggleButton.addEventListener('click', () => {
+toggleButton.addEventListener('click', () => { // Toggle the visibility of the dropdown menu
   menu.classList.toggle('hidden');
 });
 
@@ -88,7 +88,7 @@ function createSkillCard(skill) {
     if (modalTitle) modalTitle.textContent = skill.title;
   });
 
-  const removeBtn = card.querySelector('.remove-btn');
+  const removeBtn = card.querySelector('.remove-btn'); // Add event listener to the remove button
   removeBtn.addEventListener('click', () => {
     if (confirm('Are you sure you want to remove this skill?')) {
       card.remove();
@@ -196,10 +196,10 @@ const teamNameInput = document.getElementById('team-name');
 const saveButton = document.getElementById('save-team');
 const savedTeamsContainer = document.getElementById('saved-teams');
 
-let selectedTeam = [];
+let selectedTeam = []; // Array to hold selected team members
 
-function renderAvailablePeople() {
-  availableContainer.innerHTML = '';
+function renderAvailablePeople() { // Render available people who are not in the selected team
+  availableContainer.innerHTML = ''; // Clear the available people container
   people.forEach(person => {
     const isSelected = selectedTeam.find(p => p.name === person.name);
     if (!isSelected) {
@@ -222,14 +222,14 @@ function renderAvailablePeople() {
   });
 }
 
-function renderSelectedTeam() {
+function renderSelectedTeam() { // Render the selected team members
   selectedContainer.innerHTML = '';
   if (selectedTeam.length === 0) {
     selectedContainer.innerHTML = '<p class="text-sm text-gray-500">No members yet.</p>';
     return;
   }
 
-  selectedTeam.forEach(person => {
+  selectedTeam.forEach(person => { // Create a card for each selected team member
     const card = document.createElement('div');
     card.className = 'bg-white p-3 rounded shadow flex justify-between items-center';
     card.innerHTML = `
@@ -248,7 +248,7 @@ function renderSelectedTeam() {
   });
 }
 
-function renderSavedTeam(team) {
+function renderSavedTeam(team) {  // Render the saved team in the saved teams section
   const wrapper = document.createElement('div');
   wrapper.className = 'bg-white p-4 rounded-lg shadow border border-gray-200 mb-4';
 
@@ -269,7 +269,7 @@ function renderSavedTeam(team) {
   savedTeamsContainer.appendChild(wrapper);
 }
 
-saveButton.addEventListener('click', () => {
+saveButton.addEventListener('click', () => { // Save the team when the save button is clicked
   const teamName = teamNameInput.value.trim();
   if (!teamName || selectedTeam.length === 0) {
     alert("Please give your team a name and add at least one member.");
@@ -351,9 +351,9 @@ if (projectForm) {
     const goal = document.getElementById('project-goal').value.trim();
     const skills = document.getElementById('project-skills').value.trim();
 
-    if (!title || !goal || !skills) return;
+    if (!title || !goal || !skills) return; // Exit if any input is empty
 
-    const project = { title, goal, skills };
+    const project = { title, goal, skills }; // Create a project object
 
     if (editingIndex !== null) {
       postedProjects[editingIndex] = project;
@@ -405,7 +405,8 @@ function renderEvents() {
 
     // EDIT
     card.querySelector('.edit-event').addEventListener('click', () => {
-      document.getElementById('event-title').value = event.title;
+      document.getElementById('event-title').value = event.title; // Populate the input field for the event title with the selected event's title
+
       document.getElementById('event-date').value = event.datetime;
 
       // Remove so it can be re-submitted as an updated version
